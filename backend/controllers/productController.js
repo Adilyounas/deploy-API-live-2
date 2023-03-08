@@ -19,7 +19,7 @@ const createProduct = async (req, res) => {
 
 const getAllProducts = async (req, res) => {
   try {
-    const resultPerPage = 2;
+    const resultPerPage = 6;
     const totalProductsCount = await Product.countDocuments();
     const apiFeatures = new ApiFeatures(Product.find(), req.query)
       .search()
