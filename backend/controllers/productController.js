@@ -38,6 +38,7 @@ const getAllProducts = async (req, res) => {
       success: true,
       totalProductsCount,
       filtered: product.length,
+      resultPerPage,
       product,
     });
   } catch (error) {
