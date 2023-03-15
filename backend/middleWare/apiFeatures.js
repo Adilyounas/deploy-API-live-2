@@ -28,6 +28,7 @@ class ApiFeatures {
       /\b(gt|gte|lt|lte|eq)\b/g,
       (key) => `$${key}`
     );
+    console.log(addDollar);
     this.query = this.query.find(JSON.parse(addDollar));
     return this;
   }
