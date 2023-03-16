@@ -4,6 +4,7 @@ const User = require("../models/userModel");
 const authentication = async (req, res, next) => {
   try {
     const { token } =await req.cookies;
+    console.log(token);
     if (!token) {
       return res.status(400).json({
         success: false,
