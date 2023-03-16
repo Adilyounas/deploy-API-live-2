@@ -3,7 +3,7 @@ const User = require("../models/userModel");
 
 const authentication = async (req, res, next) => {
   try {
-    const { token } = req.cookies;
+    const { token } =await req.cookies;
     if (!token) {
       return res.status(400).json({
         success: false,
@@ -15,7 +15,7 @@ const authentication = async (req, res, next) => {
     if (!user) {
       return res.status(400).json({
         success: false,
-        message: "Login first",
+        message: "2Login first",
       });
     }
 
