@@ -7,7 +7,7 @@ const authentication = async (req, res, next) => {
     if (!token) {
       return res.status(400).json({
         success: false,
-        message: "Login first",
+        message: "1Login first",
       });
     }
     const decodedData = jwt.verify(token, process.env.SECRET_KEY);
