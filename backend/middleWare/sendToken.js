@@ -4,7 +4,7 @@ const sendToken = async (res, user, statusCode, message) => {
     expires: new Date(
       Date.now() + process.env.COOKIE_EXPIRES * 24 * 3600 * 1000
     ),
-    httpOnly: true,
+    httpOnly: true, sameSite: 'none', secure: true 
   };
   if (!token) {
     return res.status(400).json({
