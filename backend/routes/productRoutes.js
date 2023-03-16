@@ -15,7 +15,7 @@ router
   .post(authentication, authRoles("admin"), createProduct);
 
 //get all products
-router.route("/products").get(getAllProducts);
+router.route("/products").get(authentication,getAllProducts);
 
 //get single product
 router.route("/product/:id").get(getSingleProduct);
