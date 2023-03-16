@@ -13,7 +13,7 @@ const sendToken = async (res, user, statusCode, message) => {
     });
   }
 
-  res.status(statusCode).cookie("token", token, options).json({
+  res.status(statusCode).cookie("jwtToken", token, options).json({
     success: true,
     token,
     user,
