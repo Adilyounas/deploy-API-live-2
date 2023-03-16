@@ -1,10 +1,12 @@
 const sendToken = async (res, user, statusCode, message) => {
   const token = await user.generatingJWT();
   const options = {
+    httpOnly: true,
+    sameSite: "none",
+    secure: true,
     expires: new Date(
       Date.now() + process.env.COOKIE_EXPIRES * 24 * 3600 * 1000
     ),
-    httpOnly: true, sameSite: 'none', secure: true 
   };
   if (!token) {
     return res.status(400).json({
