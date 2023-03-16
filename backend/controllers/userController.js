@@ -76,7 +76,7 @@ const logout = async (req, res) => {
   try {
     const options = {
       expires: new Date(Date.now()),
-      httpOnly: true,
+      
     };
 
     res.status(200).cookie("token", null, options).json({
