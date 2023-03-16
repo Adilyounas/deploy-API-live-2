@@ -2,10 +2,16 @@ const User = require("../models/userModel");
 const sendToken = require("../middleWare/sendToken");
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
+const cloudinary = require("cloudinary")
 
 //Register a user
 const register = async (req, res) => {
   try {
+    const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar,{
+      folder:"avatars",
+      width:150,
+      crop:"scale"
+    })
     const { name, email, password } = req.body;
 
     const user = await User.create({
@@ -13,8 +19,8 @@ const register = async (req, res) => {
       email,
       password,
       avatar: {
-        public_id: "Sample id",
-        url: "Sample id",
+        public_id: myCloud.public_id,
+        url:myCloud.secure_url,
       },
     });
     const message = "Register Successfully";
