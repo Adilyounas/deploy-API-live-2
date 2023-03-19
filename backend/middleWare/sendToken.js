@@ -15,7 +15,7 @@ const sendToken = async (res, user, statusCode, message) => {
     });
   }
 
-  res.setHeader("jwtToken", "token")
+  res.cookie("jwtToken", token, options)
 
   res.status(statusCode).json({
     success: true,
