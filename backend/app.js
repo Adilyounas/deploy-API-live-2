@@ -11,7 +11,7 @@ const fileUpload = require("express-fileupload")
 
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors({ credentials: true }));
+app.use(cors())
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(fileUpload())
 
