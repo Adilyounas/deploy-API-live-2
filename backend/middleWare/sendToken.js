@@ -5,7 +5,7 @@ const sendToken = async (res, user, statusCode, message) => {
     sameSite: "none",
     secure: true,
     expires: new Date(
-      Date.now() + process.env.COOKIE_EXPIRES * 24 * 3600 * 1000
+      Date.now() + 5 * 24 * 3600 * 1000
     ),
   };
   if (!token) {
