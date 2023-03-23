@@ -12,10 +12,10 @@ const { authentication, authRoles } = require("../Authentication/auth");
 //create a product
 router
   .route("/admin/createProduct")
-  .post(authentication, authRoles("admin"), createProduct);
+  .post(  createProduct);
 
 //get all products
-router.route("/products").get(authentication,getAllProducts);
+router.route("/products").get(getAllProducts);
 
 //get single product
 router.route("/product/:id").get(getSingleProduct);
@@ -23,11 +23,11 @@ router.route("/product/:id").get(getSingleProduct);
 //update product
 router
   .route("/admin/updateProduct/:id")
-  .put(authentication, authRoles("admin"), updateProduct);
+  .put( updateProduct);
 
 //delete product
 router
   .route("/admin/deleteProduct/:id")
-  .delete(authentication, authRoles("admin"), deleteProduct);
+  .delete(deleteProduct);
 
 module.exports = router;
